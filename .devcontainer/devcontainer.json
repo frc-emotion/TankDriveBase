@@ -1,11 +1,23 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "name": "WPILib 2024 Development",
+    
+    "image": "wpilib/roborio-cross-ubuntu",
+
+    "settings": {
+        "terminal.integrated.shell.linux":"/bin/bash"
+    },
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/root/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/root/workspace",
+
+    "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
+    
     "postCreateCommand": "cd /opt && wget 'https://github.com/wpilibsuite/vscode-wpilib/releases/download/v2024.2.1/vscode-wpilib-2024.2.1.vsix'",
     "features": {
     },
     "customizations": {
       "vscode": {
-        "extensions": ["/opt/vscode-wpilib-2024.2.1.vsix","vscjava.vscode-java-pack","vscjava.vscode-gradle", "akamud.vscode-theme-onedark"],
+        "extensions": ["/opt/vscode-wpilib-2024.2.1.vsix","vscjava.vscode-java-pack","vscjava.vscode-gradle", "ms-vscode.cpptools", "akamud.vscode-theme-onedark"],
         "settings": {
           "workbench.colorTheme": "Atom One Dark"
         }
